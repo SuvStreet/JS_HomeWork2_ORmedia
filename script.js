@@ -3,6 +3,8 @@ var ulSpisok = document.getElementById("list");
 var spans = document.getElementsByTagName('span');
 var saveBtn = document.getElementById('save');
 var clearBtn = document.getElementById('clear');
+var infoDeveloperBtn = document.getElementById('infoDeveloper');
+var defaultName = 'Kolotusha Dmitrij Nikolaevich';
 
 /* Удаление задачи нажимая Delete */
 function deleteTodo(){
@@ -59,7 +61,7 @@ dataInput.addEventListener('keypress', function(keyPressed){
             this.value = ''; // очистка поля ввода
 
             ulSpisok.appendChild(newLi).append(newSpan, newTodo + " [", now.getDate() + "." + nameMonth() + "." + now.getFullYear() + " " + 
-            now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + ":" + now.getMilliseconds() + "]");
+            now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + ":" + now.getMilliseconds() + "] " + defaultName);
 
             document.getElementById("pVarning").style.display = 'none';
 
@@ -78,6 +80,11 @@ clearBtn.addEventListener('click', function(){
     ulSpisok.innerHTML = '';
     localStorage.setItem('todoAplication', ulSpisok.innerHTML);
 });
+
+infoDeveloperBtn.addEventListener('click', function(){
+    defaultName = prompt('User information', defaultName);
+});
+
 
 deleteTodo();
 loadTodo();
