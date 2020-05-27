@@ -1,20 +1,85 @@
-span{
-    color: red;
+body {
+    margin: 0;
 }
 
-.divInput {
+span{
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+ul {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+li {
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.divApp{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url(./photo.jpeg);
+    background-position: center;
+    background-size: cover;
+
+    /* animation-name: example;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; */
+}
+
+/* @keyframes example {
+    0% {background-color: orange;}
+    50% {background-color: rgb(0, 247, 255);}
+    100% {background-color: yellow;}
+} */
+
+.divApp h1{
+    margin: 20px auto;
+    font-size: 70px;
+}
+
+.divApp .divInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.divApp .divInput input{
+    width: 90%;
+    height: 40px;
+    padding: 0px 25px;
 }
 
 .divInput .pVarning{
     display: none;
-    padding-left: 5px;
-    margin: 0;
-    color: red;
+    color: white;
     font-weight: bold;
+    margin-bottom: 0;
+    font-size: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    background-color: rgba(255, 0, 0, 0.7);
 } 
 
-.showVarning{
-    display: block;
+.divApp .divButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divApp .divButton button {
+    height: 35px;
+    margin: 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
 }

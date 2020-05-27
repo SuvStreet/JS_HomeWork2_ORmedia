@@ -6,6 +6,8 @@ var clearBtn = document.getElementById('clear');
 var infoDeveloperBtn = document.getElementById('infoDeveloper');
 var defaultName = 'Kolotusha Dmitrij Nikolaevich';
 
+document.addEventListener("DOMContentLoaded", loadTodo());
+
 /* Удаление задачи нажимая Delete */
 function deleteTodo(){
     for(let span of spans){
@@ -21,6 +23,7 @@ function loadTodo(){
     if(localStorage.getItem('todoAplication')){
         ulSpisok.innerHTML = localStorage.getItem('todoAplication');
         deleteTodo();
+        strikeOutTodo();
     }
 };
 
@@ -66,6 +69,7 @@ dataInput.addEventListener('keypress', function(keyPressed){
             document.getElementById("pVarning").style.display = 'none';
 
             deleteTodo();
+            strikeOutTodo();
         }
     }
 });
@@ -79,12 +83,37 @@ saveBtn.addEventListener('click', function(){
 clearBtn.addEventListener('click', function(){
     ulSpisok.innerHTML = '';
     localStorage.setItem('todoAplication', ulSpisok.innerHTML);
+    document.getElementById("pVarning").style.display = 'none';
 });
 
+/* Информация о пользователе */
 infoDeveloperBtn.addEventListener('click', function(){
     defaultName = prompt('User information', defaultName);
 });
 
+/* Текст зачеркнуть */
+function strikeOutTodo(){
+    let li = document.getElementsByTagName('li');
+    for(let list of li){
+        list.addEventListener('click', function(){
+            this.style.textDecoration = 'line-through';
+        });
+    }
+};
 
-deleteTodo();
-loadTodo();
+/* function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
+} */
+
+/* Изменение цвета background при нажатии мышкой */
+/* document.getElementById('divApp').addEventListener('click', function(){
+    var R = getRandomIntInclusive(0, 255);
+    // alert("Значение R " + R);
+    var G = getRandomIntInclusive(0, 255);
+    // lert("Значение G " + G);
+    var B = getRandomIntInclusive(0, 255);
+    // alert("Значение B " + B);
+    document.getElementById('divApp').style.backgroundColor = 'rgb(' + R + ', ' + G + ', ' + B + ')';
+}); */
