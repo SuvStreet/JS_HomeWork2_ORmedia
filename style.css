@@ -1,3 +1,20 @@
 span{
     color: red;
 }
+
+.divInput {
+    display: flex;
+    align-items: center;
+}
+
+.divInput .pVarning{
+    display: none;
+    padding-left: 5px;
+    margin: 0;
+    color: red;
+    font-weight: bold;
+} 
+
+.showVarning{
+    display: block;
+}

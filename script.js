@@ -46,18 +46,25 @@ function nameMonth(){
 /* Добавление задачи по нажатию Enter = 13 */
 dataInput.addEventListener('keypress', function(keyPressed){
     if(keyPressed.which === 13){
-        var newLi = document.createElement('li');
-        var newSpan = document.createElement('span');
-        newSpan.innerHTML = 'Delete ';
-        let now = new Date();
-        
-        var newTodo = this.value; // получение value из input
-        this.value = ''; // очистка поля ввода
+        if (dataInput.value.trim() === ""){
+            document.getElementById("pVarning").style.display = 'block';
+        }
+        else {
+            var newLi = document.createElement('li');
+            var newSpan = document.createElement('span');
+            newSpan.innerHTML = 'Delete ';
+            let now = new Date();
+            
+            var newTodo = this.value; // получение value из input
+            this.value = ''; // очистка поля ввода
 
-        ulSpisok.appendChild(newLi).append(newSpan, newTodo + " [", now.getDate() + "." + nameMonth() + "." + now.getFullYear() + " " + 
-        now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + ":" + now.getMilliseconds() + "]");
+            ulSpisok.appendChild(newLi).append(newSpan, newTodo + " [", now.getDate() + "." + nameMonth() + "." + now.getFullYear() + " " + 
+            now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + ":" + now.getMilliseconds() + "]");
 
-        deleteTodo();
+            document.getElementById("pVarning").style.display = 'none';
+
+            deleteTodo();
+        }
     }
 });
 
